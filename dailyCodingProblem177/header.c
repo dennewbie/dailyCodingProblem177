@@ -23,6 +23,7 @@ Node *createNode(void) {
     if(!newNode) getErrorNodeCreation();
     newNode->nodeData = createData();
     newNode->next = NULL;
+    
     return newNode;
 }
 
@@ -35,11 +36,12 @@ Data *createData(void) {
     Data *newData = (Data *) calloc(1, sizeof(Data));
     if(!newData) getErrorDataCreation();
     getData(newData);
+    
     return newData;
 }
 
 void getData(Data *newData) {
-    newData->ID = 1 + rand() % 100;
+    newData->ID = 1 + rand() % MAX_ID;
 }
 
 void getErrorDataCreation(void) {
@@ -48,10 +50,12 @@ void getErrorDataCreation(void) {
 }
 
 void printNode(Data *data)  {
-    printf("%10d\n", data->ID);
+    printf("-> %5d\n", data->ID);
 }
 
 void printList(Node *root, unsigned short int nNodes) {
+    newLine();
+    printf("* This is the list created - Nodes: %d *\n\n", nNodes);
     for(unsigned short int i = 0; i < nNodes; i++) {
         printNode(root->nodeData);
         root = root->next;

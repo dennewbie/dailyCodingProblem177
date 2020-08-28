@@ -12,14 +12,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+
 #define MAX_SIZE 10
+#define MAX_ID 100
+
 #define newLine() { printf("\n\n\n"); }
 
 #endif /* header_h */
 
+//Bool handling
 enum bool { FALSE, TRUE };
 typedef enum bool Bool;
 
+//Basic Data Structures for the List
 struct info {
     int ID;
 };
@@ -33,12 +38,15 @@ struct node {
 
 typedef struct node Node;
 
+//Functions and Procedures
 Node *createList(unsigned short int);
 Node *createNode(void);
 void getErrorNodeCreation(void);
 Data *createData(void);
 void getData(Data *);
 void getErrorDataCreation(void);
+
 void printNode(Data *);
 void printList(Node *, unsigned short int);
+
 unsigned short int generateIntegerNumber(void);

@@ -18,7 +18,7 @@
 #include "header.h"
 
 int main(int argc, const char * argv[]) {
-//    srand((unsigned int) time(NULL));
+    srand((unsigned int) time(NULL));
     unsigned short int nNodes = generateIntegerNumber(), nRotations = generateIntegerNumber();
     
     Node *root = createList(nNodes);
