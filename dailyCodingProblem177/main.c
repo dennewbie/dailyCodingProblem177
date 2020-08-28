@@ -19,10 +19,17 @@
 
 int main(int argc, const char * argv[]) {
     srand((unsigned int) time(NULL));
-    unsigned short int nNodes = generateIntegerNumber(), nRotations = generateIntegerNumber();
     
-    Node *root = createList(nNodes);
-    printList(root, nNodes);
-   
+    ListPackage newListPackage;
+    newListPackage.nNodes = generateIntegerNumber();
+    newListPackage.nRotations = generateIntegerNumber();
+    
+    Node *root = createList(newListPackage.nNodes);
+    printList(root, newListPackage.nNodes);
+    
+    newListPackage.root = root;
+    Node *rotatedList = rotateList(newListPackage);
+    printList(rotatedList, newListPackage.nNodes);
+    
     return 0;
 }

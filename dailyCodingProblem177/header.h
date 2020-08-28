@@ -38,6 +38,14 @@ struct node {
 
 typedef struct node Node;
 
+struct package {
+    Node *root;
+    unsigned short int nNodes;
+    unsigned short int nRotations;
+};
+
+typedef struct package ListPackage;
+
 //Functions and Procedures
 Node *createList(unsigned short int);
 Node *createNode(void);
@@ -50,3 +58,6 @@ void printNode(Data *);
 void printList(Node *, unsigned short int);
 
 unsigned short int generateIntegerNumber(void);
+
+//Rotation Function
+Node *rotateList(ListPackage);

@@ -10,7 +10,7 @@
 
 Node *createList(unsigned short int nNodes) {
     Node *head = createNode(), *current = head;
-    for(unsigned short int i = 0; i < nNodes; i++) {
+    for(unsigned short int i = 1; i < nNodes; i++) {
         current->next = createNode();
         current = current->next;
     }
@@ -56,12 +56,33 @@ void printNode(Data *data)  {
 void printList(Node *root, unsigned short int nNodes) {
     newLine();
     printf("* This is the list created - Nodes: %d *\n\n", nNodes);
-    for(unsigned short int i = 0; i < nNodes; i++) {
+    while(root->next != NULL) {
         printNode(root->nodeData);
         root = root->next;
     }
+    newLine();
 }
 
 unsigned short int generateIntegerNumber() {
     return 1 + rand() % MAX_SIZE;
+}
+
+Node *rotateList(ListPackage package) {
+    printf("* nRotations: %d *", package.nRotations);
+    Node *rotatedList, *current, *firstNode;
+    rotatedList = current = package.root;
+    
+    unsigned short int lastListElementIndex = (package.nRotations % package.nNodes) - 1, i = 0;
+    
+    while(current->next != NULL && i < lastListElementIndex) {
+        current = current->next;
+        i++;
+    }
+    
+    rotatedList = firstNode = current->next;
+    current->next = NULL;
+    while(rotatedList->next != NULL) rotatedList = rotatedList->next;
+    rotatedList->next = package.root;
+    
+    return firstNode;
 }
