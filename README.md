@@ -1,6 +1,6 @@
-#Daily Coding Problem 177
+# Daily Coding Problem 177
 
-###This problem was asked by Airbnb. Level: Easy
+### This problem was asked by Airbnb. Level: Easy
 
 Given a linked list and a positive integer k, rotate the list to the right by k places. 
 
