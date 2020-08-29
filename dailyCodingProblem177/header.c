@@ -35,12 +35,12 @@ void getErrorNodeCreation(void) {
 Data *createData(void) {
     Data *newData = (Data *) calloc(1, sizeof(Data));
     if(!newData) getErrorDataCreation();
-    getData(newData);
+    genData(newData);
     
     return newData;
 }
 
-void getData(Data *newData) {
+void genData(Data *newData) {
     newData->ID = 1 + rand() % MAX_ID;
 }
 

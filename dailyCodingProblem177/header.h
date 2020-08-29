@@ -51,7 +51,7 @@ Node *createList(unsigned short int);
 Node *createNode(void);
 void getErrorNodeCreation(void);
 Data *createData(void);
-void getData(Data *);
+void genData(Data *);
 void getErrorDataCreation(void);
 
 void printNode(Data *);
