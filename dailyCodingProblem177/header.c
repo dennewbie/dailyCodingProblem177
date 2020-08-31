@@ -56,7 +56,7 @@ void printNode(Data *data)  {
 void printList(Node *root, unsigned short int nNodes) {
     newLine();
     printf("* This is the list created - Nodes: %d *\n\n", nNodes);
-    while(root->next != NULL) {
+    while(root != NULL) {
         printNode(root->nodeData);
         root = root->next;
     }
@@ -68,11 +68,20 @@ unsigned short int generateIntegerNumber() {
 }
 
 Node *rotateList(ListPackage package) {
+    if(package.nNodes <= 0) {
+        printf("\nError. No Nodes.\n");
+        exit(EXIT_FAILURE);
+    }
     printf("* nRotations: %d *", package.nRotations);
     Node *rotatedList, *current, *firstNode;
-    rotatedList = current = package.root;
+    rotatedList = current = (package.root);
     
-    unsigned short int lastListElementIndex = (package.nRotations % package.nNodes) - 1, i = 0;
+    short int lastListElementIndex = (package.nRotations % package.nNodes) - 1, i = 0;
+    
+    if(lastListElementIndex < 0 ) {
+        lastListElementIndex = 0;
+        return (package.root);
+    }
     
     while(current->next != NULL && i < lastListElementIndex) {
         current = current->next;
@@ -82,7 +91,7 @@ Node *rotateList(ListPackage package) {
     rotatedList = firstNode = current->next;
     current->next = NULL;
     while(rotatedList->next != NULL) rotatedList = rotatedList->next;
-    rotatedList->next = package.root;
+    rotatedList->next = (package.root);
     
     return firstNode;
 }
